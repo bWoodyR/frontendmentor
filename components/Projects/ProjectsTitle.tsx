@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProjectTitle = () => {
+const ProjectsTitle = () => {
   return (
     <div className="flex flex-col items-center justify-center space-y-6 text-center">
       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Frontend Mentor Challenges</h1>
@@ -11,4 +11,4 @@ const ProjectTitle = () => {
   );
 }
 
-export default ProjectTitle
+export default ProjectsTitle
