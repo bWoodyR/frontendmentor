@@ -2,27 +2,33 @@ import { ActionToDo, Dessert } from "@/types/DessertsType";
 
 export enum DESSERT_ACTION_TYPES {
   HANDLE_ITEM_TO_ORDER = "ADD_TO_ORDER",
+  CLEAR_ORDER = "CLEAR_ORDER",
+  SHOW_ORDER_CONFIRM_DIALOG = "SHOW_ORDER_CONFIRM_DIALOG",
 }
 
 export type State = {
   desserts: Dessert[];
   order: Dessert[] | [];
+  showOrderConfirmationDialog: boolean;
 };
 
 export type Action = {
   type: DESSERT_ACTION_TYPES;
   payload: {
-    dessert: Dessert;
-    actionToDo: ActionToDo;
+    dessert?: Dessert;
+    actionToDo?: ActionToDo;
+    showOrderConfirmationDialog?: boolean;
   };
 };
 
-const dessertReducer = (state: State, action: Action) => {
+const dessertReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case DESSERT_ACTION_TYPES.HANDLE_ITEM_TO_ORDER: {
-      const dessert = state.desserts.find((dessert) => dessert.name === action.payload.dessert.name) as Dessert;
+      const dessertName = action.payload.dessert?.name;
+      const actionToDo = action.payload.actionToDo as ActionToDo;
+      const dessert = state.desserts.find((dessert) => dessert.name === dessertName) as Dessert;
       if (!dessert) return { ...state };
-      const updatedDessert = updateDessert(dessert, action.payload.actionToDo);
+      const updatedDessert = updateDessert(dessert, actionToDo);
       const updatedListOfDesserts = state.desserts.map((dessert) => {
         if (dessert.name === updatedDessert.name) {
           return updatedDessert;
@@ -30,6 +36,13 @@ const dessertReducer = (state: State, action: Action) => {
       });
       return { ...state, desserts: updatedListOfDesserts, order: updatedListOfDesserts.filter((dessert) => dessert.isSelected) };
     }
+    case DESSERT_ACTION_TYPES.CLEAR_ORDER: {
+      const clearedOrders: [] = [];
+      const updatedDesserts = state.desserts.map((dessert) => ({ ...dessert, isSelected: false, count: 0 }));
+      return { ...state, desserts: updatedDesserts, order: clearedOrders };
+    }
+    case DESSERT_ACTION_TYPES.SHOW_ORDER_CONFIRM_DIALOG:
+      return { ...state, showOrderConfirmationDialog: action.payload.showOrderConfirmationDialog || false };
     default:
       return { ...state };
   }
