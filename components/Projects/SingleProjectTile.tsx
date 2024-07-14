@@ -16,6 +16,7 @@ const SingleProjectTile = ({ project }: Props) => {
       <div className="p-4 bg-background">
         <h3 className="text-lg font-semibold md:text-xl">{project.title}</h3>
         <p className="text-sm text-muted-foreground">{project.description}</p>
+        <p className="text-gray-500">{project.dateCreated.toLocaleDateString()}</p>
       </div>
     </div>
   );

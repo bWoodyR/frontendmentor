@@ -4,4 +4,5 @@ export type Project = {
   slug: string;
   component: React.ReactNode;
   image: string;
+  dateCreated: Date
 };

@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Inter } from "next/font/google";
+import { hank, inter, redHatText } from "./fonts";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
-const hank = Hanken_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--hank-grotesk",
-});
 
 export const metadata: Metadata = {
   title: "Frontened Mentor Challanges",
@@ -22,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${hank.variable}`}>{children}</body>
+      <body className={`${inter.className} ${hank.variable} ${redHatText.variable}`}>{children}</body>
     </html>
   );
 }
