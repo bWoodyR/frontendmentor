@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { DessertContext } from "../Context/DessertContext";
-import ButtonConfirmOrder from "./ButtonConfirmOrder";
 import CarbonNeutral from "./CarbonNeutral";
 import CartTotalPrice from "./CartTotalPrice";
 import CartItemList from "./CartItemList";
 import CartEmptyState from "./CartEmptyState";
+import CartConfirmButton from "./CartConfirmButton";
+import { DESSERT_ACTION_TYPES } from "../Context/DessertReducer";
 
 const Cart = () => {
-  const { state } = useContext(DessertContext);
+  const { state, dispatch } = useContext(DessertContext);
   const totalItemsInCart = state.order.reduce((sum, num) => sum + num.count, 0);
 
   return (
@@ -20,7 +21,7 @@ const Cart = () => {
           <CartItemList />
           <CartTotalPrice />
           <CarbonNeutral />
-          <ButtonConfirmOrder />       
+          <CartConfirmButton text="Confirm Order" callback={() => dispatch({ type: DESSERT_ACTION_TYPES.SHOW_ORDER_CONFIRM_DIALOG, payload: { showOrderConfirmationDialog: true } })} />
         </>
       )}
     </div>
