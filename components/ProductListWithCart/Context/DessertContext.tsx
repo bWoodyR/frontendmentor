@@ -12,7 +12,7 @@ type DesertContextType = {
 const initState = {
   desserts: dessertsData.map((dessert) => ({ ...dessert, isSelected: false, count: 0 })),
   order: [],
-  showOrderConfirmationDialog: true,
+  showOrderConfirmationDialog: false,
 };
 
 const DessertContext = React.createContext<DesertContextType>({

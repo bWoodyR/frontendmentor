@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { DessertContext } from "../Context/DessertContext";
 import { DESSERT_ACTION_TYPES } from "../Context/DessertReducer";
 import { Dessert } from "@/types/DessertsType";
+import { FaTimes } from "react-icons/fa";
 
 type Props = {
   dessert: Dessert;
@@ -26,8 +27,8 @@ const CartSingleItem = ({ dessert }: Props) => {
             <span className="text-rose400 font-medium">${(dessert.price * dessert.count).toFixed(2)}</span>
           </div>
         </div>
-        <button className="outline outline-2 outline-[#c9aea6] rounded-full p-1" onClick={() => removeItemFromCart()}>
-          <Image src="/assets/images/product-list-with-cart/icon-remove-item.svg" alt="" width={14} height={14} />
+        <button className="w-4 h-4 flex items-center transition-colors outline outline-2 text-rose300 outline-rose300 rounded-full p-1 hover:outline-black hover:text-black" onClick={() => removeItemFromCart()}>
+          <FaTimes />
         </button>
       </div>
       <hr className="border border-1 border-[#f4edeb] w-full" />

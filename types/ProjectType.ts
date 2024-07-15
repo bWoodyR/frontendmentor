@@ -4,5 +4,10 @@ export type Project = {
   slug: string;
   component: React.ReactNode;
   image: string;
-  dateCreated: Date
+  dateCreated: Date;
+  labels: Label[];
+};
+
+type Label = {
+  labels: string[];
 };

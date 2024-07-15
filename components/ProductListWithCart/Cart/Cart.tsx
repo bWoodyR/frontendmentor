@@ -12,7 +12,7 @@ const Cart = () => {
   const totalItemsInCart = state.order.reduce((sum, num) => sum + num.count, 0);
 
   return (
-    <div className="bg-[#fcf9f7] p-6 rounded-xl">
+    <div className="bg-[#fcf9f7] p-6 rounded-xl min-w-[350px] sm:mt-8">
       <h2 className="text-2xl text-dark-red font-bold">Your Cart {`(${totalItemsInCart})`}</h2>
       {totalItemsInCart === 0 ? (
         <CartEmptyState />

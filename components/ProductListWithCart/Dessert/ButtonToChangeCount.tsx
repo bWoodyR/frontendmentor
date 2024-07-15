@@ -1,5 +1,5 @@
 import { ActionToDo } from "@/types/DessertsType";
-import Image from "next/image";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 type Props = {
   handleDessertClick: (actionToDo: ActionToDo) => void;
@@ -8,14 +8,14 @@ type Props = {
 
 const ButtonToChangeCount = ({ handleDessertClick, dessertCounnt }: Props) => {
   return (
-    <div className="absolute bottom-0 left-0 translate-x-[50%] translate-y-[50%] z-10 flex gap-2 items-center text-rose900 font-semibold text-sm bg-[#c73a0f] px-4 py-3 rounded-3xl w-[155px]">
-      <div className="flex justify-between items-center w-full">
-        <button className=" flex items-center outline outline-1 outline-white rounded-full p-1 w-4 h-4" onClick={() => handleDessertClick("decrement")}>
-          <Image src={"/assets/images/product-list-with-cart/icon-decrement-quantity.svg"} alt="decrement-dessert-icon" width={10} height={10} />
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 flex gap-2 items-center text-rose900 font-semibold text-sm bg-dark-red px-4 py-2 rounded-3xl w-[155px]">
+      <div className="flex justify-between items-center w-full ">
+        <button className=" flex items-center outline outline-1 outline-white rounded-full p-1 w-4 h-4 hover:bg-white text-white hover:text-dark-red transition-colors" onClick={() => handleDessertClick("decrement")}>
+          <FaMinus className="" />
         </button>
         <span className="text-white">{dessertCounnt}</span>
-        <button className=" flex items-center outline outline-1 outline-white rounded-full p-1 w-4 h-4" onClick={() => handleDessertClick("increment")}>
-          <Image src={"/assets/images/product-list-with-cart/icon-increment-quantity.svg"} alt="increment-dessert-icon" width={10} height={10} />
+        <button className=" flex items-center outline outline-1 outline-white rounded-full p-1 w-4 h-4 hover:bg-white text-white hover:text-dark-red transition-colors" onClick={() => handleDessertClick("increment")}>
+          <FaPlus className="" />
         </button>
       </div>
     </div>
