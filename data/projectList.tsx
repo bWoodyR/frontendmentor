@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     title: "Product List With Cart",
     description: "",
-    slug: "product-list-with-cart",
+    slug: "dessert-list-with-cart",
     component: <ProductListWithCart />,
     image: "/assets/images/product-list-with-cart/product-list-with-cart-tile.png",
     dateCreated: new Date("2024-7-15"),
