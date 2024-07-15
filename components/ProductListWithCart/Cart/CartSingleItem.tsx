@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useContext } from "react";
 import { DessertContext } from "../Context/DessertContext";
 import { DESSERT_ACTION_TYPES } from "../Context/DessertReducer";
