@@ -38,7 +38,7 @@ const Desert = ({ dessert }: Props) => {
   return (
     <div key={dessert.name}>
       <div className="relative">
-        <Image src={imgSrc} alt="" width={150} height={100} className={`w-full rounded-xl ${dessert.isSelected ? "outline outline-3 outline-dark-red" : null}`} />
+        <Image src={imgSrc} alt="" width={150} height={100} className={`w-full rounded-xl ${dessert.isSelected ? "outline outline-3 outline-dark-red" : null}`} priority />
         {!dessert.isSelected ? <ButtonAddToCart handleDessertClick={handleDessertClick} /> : <ButtonToChangeCount handleDessertClick={handleDessertClick} dessertCounnt={dessert.count} />}
       </div>
       <DesertInformations category={dessert.category} name={dessert.name} price={dessert.price} />
