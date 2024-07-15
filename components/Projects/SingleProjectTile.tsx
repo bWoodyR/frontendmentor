@@ -9,7 +9,7 @@ type Props = {
 const SingleProjectTile = ({ project }: Props) => {
   return (
     <div key={project.slug} className="relative outline outline-2 outline-white rounded-lg group">
-      <Link href={`/challenges/${project.slug}`} className="absolute inset-0 z-10" prefetch={false}>
+      <Link href={`/projects/${project.slug}`} className="absolute inset-0 z-10" prefetch={false}>
         <span className="sr-only">View Project</span>
       </Link>
       <Image src={project.image} alt={`${project.title}-image`} width={400} height={300} className="object-cover w-full h-60" />
