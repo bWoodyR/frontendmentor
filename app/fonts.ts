@@ -1,4 +1,4 @@
-import { Hanken_Grotesk, Inter, Manrope, Red_Hat_Text } from "next/font/google";
+import { Hanken_Grotesk, Inter, Manrope, Outfit, Red_Hat_Text } from "next/font/google";
 
 export const inter = Inter({ subsets: ["latin"] });
 
@@ -18,4 +18,10 @@ export const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--manrope",
+});
+
+export const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--outfit",
 });

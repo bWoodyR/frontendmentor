@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { hank, inter, manrope, redHatText } from "./fonts";
+import { hank, inter, manrope, outfit, redHatText } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${hank.variable} ${redHatText.variable} ${manrope.className}`}>{children}</body>
+      <body className={`${inter.className} ${hank.variable} ${redHatText.variable} ${manrope.className} ${outfit.className}`}>{children}</body>
     </html>
   );
 }

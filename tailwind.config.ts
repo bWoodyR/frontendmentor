@@ -8,6 +8,7 @@ const config: Config = {
         hank: ["var(--hank-grotesk)"],
         "red-hat-text": ["var(--red-hat-text)"],
         manrope: ["var(--manrope)"],
+        outfit: ["var(--outfit)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -27,6 +28,9 @@ const config: Config = {
         "grayish-blue": "hsl(217, 19%, 38%)",
         "dark-grayish-blue": "hsl(217, 19%, 24%)",
         "dark-blue": "hsl(218, 23%, 16%)",
+        "light-gray": "hsl(212, 45%, 89%)",
+        "qr-grayish-blue": "hsl(220, 15%, 55%)",
+        "qr-dark-blue": "hsl(218, 44%, 22%)"
       },
       boxShadow: {
         "neon-spread": `0 0 0.75rem 1rem rgba(82, 255, 168, 0.25)`,

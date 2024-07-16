@@ -1,5 +1,6 @@
 import AdviceGenerator from "@/components/AdviceGenerator/AdviceGenerator";
 import ProductListWithCart from "@/components/ProductListWithCart/ProductListWithCart";
+import QRCodeComponent from "@/components/QRCodeComponent/QRCodeComponent";
 import ResultSummaryComopnents from "@/components/ResultsSummaryComponent/ResultSummaryComopnents";
 import { Project } from "@/types/ProjectType";
 
@@ -33,5 +34,15 @@ export const projects: Project[] = [
     dateCreated: new Date("2024-7-16"),
     labels: [],
     difficulty: "JUNIOR",
+  },
+  {
+    title: "QR Code Component",
+    description: "",
+    slug: "qr-code-component",
+    component: <QRCodeComponent />,
+    image: "/assets/images/qr-code-component/qr-code-component.png",
+    dateCreated: new Date("2024-7-16"),
+    labels: [],
+    difficulty: "NEWBIE",
   },
 ];
