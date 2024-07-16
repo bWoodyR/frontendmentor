@@ -29,7 +29,7 @@ export const projects: Project[] = [
     description: "",
     slug: "advice-generator",
     component: <AdviceGenerator />,
-    image: "/assets/images/advice-generator/advice-generator-tile.png",
+    image: "/assets/images/advice-generator/advice-generator-app.png",
     dateCreated: new Date("2024-7-16"),
     labels: [],
     difficulty: "JUNIOR",
