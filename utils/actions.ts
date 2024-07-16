@@ -7,7 +7,6 @@ export const getAdvice = async () => {
     const data = await response.json();
 
     if (response.status === 200) {
-      console.log(data);
       return {
         errorMessage: "",
         adviceData: data,
@@ -20,5 +19,9 @@ export const getAdvice = async () => {
     }
   } catch (error) {
     console.error(error);
+    return {
+      errorMessage: "Internal Server Error",
+      adviceData: null,
+    };
   }
 };
