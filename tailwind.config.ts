@@ -7,6 +7,7 @@ const config: Config = {
       fontFamily: {
         hank: ["var(--hank-grotesk)"],
         "red-hat-text": ["var(--red-hat-text)"],
+        manrope: ["var(--manrope)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -21,6 +22,14 @@ const config: Config = {
         rose400: "#ad8985",
         rose500: "#87635a",
         rose900: "#260f08",
+        "light-cyan": "hsl(193, 38%, 86%)",
+        "neon-green": "hsl(150, 100%, 66%)",
+        "grayish-blue": "hsl(217, 19%, 38%)",
+        "dark-grayish-blue": "hsl(217, 19%, 24%)",
+        "dark-blue": "hsl(218, 23%, 16%)",
+      },
+      boxShadow: {
+        "neon-spread": `0 0 0.75rem 1rem rgba(82, 255, 168, 0.25)`,
       },
     },
   },

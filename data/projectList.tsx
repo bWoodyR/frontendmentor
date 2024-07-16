@@ -1,3 +1,4 @@
+import AdviceGenerator from "@/components/AdviceGenerator/AdviceGenerator";
 import ProductListWithCart from "@/components/ProductListWithCart/ProductListWithCart";
 import ResultSummaryComopnents from "@/components/ResultsSummaryComponent/ResultSummaryComopnents";
 import { Project } from "@/types/ProjectType";
@@ -11,6 +12,7 @@ export const projects: Project[] = [
     image: "/assets/images/result-summary-component/results-summary-component.png",
     dateCreated: new Date("2024-7-13"),
     labels: [],
+    difficulty: "NEWBIE",
   },
   {
     title: "Product List With Cart",
@@ -20,14 +22,16 @@ export const projects: Project[] = [
     image: "/assets/images/product-list-with-cart/product-list-with-cart-tile.png",
     dateCreated: new Date("2024-7-15"),
     labels: [],
+    difficulty: "JUNIOR",
   },
   {
     title: "Advice Generator",
     description: "",
     slug: "advice-generator",
-    component: <ProductListWithCart />,
+    component: <AdviceGenerator />,
     image: "/assets/images/advice-generator/advice-generator-tile.png",
     dateCreated: new Date("2024-7-16"),
     labels: [],
+    difficulty: "JUNIOR",
   },
 ];

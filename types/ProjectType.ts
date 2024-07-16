@@ -6,6 +6,7 @@ export type Project = {
   image: string;
   dateCreated: Date;
   labels: Label[];
+  difficulty: "NEWBIE" | "JUNIOR" | "INTERMEDIATE" | "ADVANCED" | "GURU";
 };
 
 type Label = {
