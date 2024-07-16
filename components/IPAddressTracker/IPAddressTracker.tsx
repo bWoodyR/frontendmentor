@@ -7,10 +7,11 @@ import { useFormState } from "react-dom";
 
 const IPAddressTracker = () => {
   const [state, formAction] = useFormState(findIP, null);
-  const [userIp, setUserIp] = useState("");
+  const [userIp, setUserIp] = useState<string | null>("");
 
   const getIp = async () => {
     const ip = await getUserIP();
+    setUserIp(ip);
   };
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const IPAddressTracker = () => {
 
   return (
     <section className="relative flex flex-col min-h-screen bg-content bg-no-repeat bg-[url('/assets/images/ip-address-tracker/pattern-bg-mobile.png')] font-rubik">
+      <h1>{userIp}</h1>
       <Image src="/assets/images/ip-address-tracker/pattern-bg-mobile.png" alt="" width={100} height={75} className="w-full object-contain" />
       <iframe src={`https://www.google.com/maps/embed/v1/view?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}&center=48.893948,18.018858&zoom=16&maptype=satellite`} className="w-full min-h-max flex-1"></iframe>
 

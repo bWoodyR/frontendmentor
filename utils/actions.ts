@@ -56,7 +56,7 @@ const realIp = headers().get("x-real-ip");
 console.log(forwardedFor)
 console.log(realIp)
 
-return null
+return forwardedFor;
 }
 
 
