@@ -9,6 +9,8 @@ const config: Config = {
         "red-hat-text": ["var(--red-hat-text)"],
         manrope: ["var(--manrope)"],
         outfit: ["var(--outfit)"],
+        rubik: ["var(--rubik)"],
+        firacode: ["var(--firacode)"]
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -30,7 +32,9 @@ const config: Config = {
         "dark-blue": "hsl(218, 23%, 16%)",
         "light-gray": "hsl(212, 45%, 89%)",
         "qr-grayish-blue": "hsl(220, 15%, 55%)",
-        "qr-dark-blue": "hsl(218, 44%, 22%)"
+        "qr-dark-blue": "hsl(218, 44%, 22%)",
+        "very-dark-gray": "hsl(0, 0%, 17%)",
+        "dark-gray": "hsl(0, 0%, 59%)",
       },
       boxShadow: {
         "neon-spread": `0 0 0.75rem 1rem rgba(82, 255, 168, 0.25)`,

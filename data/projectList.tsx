@@ -1,4 +1,5 @@
 import AdviceGenerator from "@/components/AdviceGenerator/AdviceGenerator";
+import IPAddressTracker from "@/components/IPAddressTracker/IPAddressTracker";
 import ProductListWithCart from "@/components/ProductListWithCart/ProductListWithCart";
 import QRCodeComponent from "@/components/QRCodeComponent/QRCodeComponent";
 import ResultSummaryComopnents from "@/components/ResultsSummaryComponent/ResultSummaryComopnents";
@@ -44,5 +45,15 @@ export const projects: Project[] = [
     dateCreated: new Date("2024-7-16"),
     labels: [],
     difficulty: "NEWBIE",
+  },
+  {
+    title: "IP Adress Tracker",
+    description: "",
+    slug: "ip-address-tracker",
+    component: <IPAddressTracker />,
+    image: "/assets/images/ip-address-tracker/ip-address-tracker.png",
+    dateCreated: new Date("2024-7-16"),
+    labels: [],
+    difficulty: "INTERMEDIATE",
   },
 ];
