@@ -3,7 +3,6 @@
 import { TIPDataResponse } from "@/types/IPAddressTracker";
 import { headers } from "next/headers";
 
-
 export const findIP = async (prevState: TIPDataResponse | null, formData: FormData) => {
   try {
     const ip = formData.get("ip");
@@ -50,15 +49,10 @@ export const findIP = async (prevState: TIPDataResponse | null, formData: FormDa
 };
 
 export const getUserIP = async () => {
-const FALLBACK_IP_ADDRESS = "0.0.0.0";
-const forwardedFor = headers().get("x-forwarded-for");
-const realIp = headers().get("x-real-ip");
-console.log(forwardedFor)
-console.log(realIp)
-
-return forwardedFor;
-}
-
+  const forwardedFor = headers().get("x-forwarded-for");
+  console.log(forwardedFor);
+  return forwardedFor;
+};
 
 export const getAdvice = async () => {
   try {
