@@ -2,16 +2,16 @@
 
 import { getAdvice } from "@/utils/actions";
 import { useFormState } from "react-dom";
-import AdviceData from "./AdviceData";
 import AdviceSubmitButton from "./AdviceSubmitButton";
 import { useEffect, useRef } from "react";
+import AdviceData from "./AdviceData";
 
 const AdviceGenerator = () => {
   const [state, formAction] = useFormState(getAdvice, { errorMessage: "", adviceData: null });
   const adviceFormRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    adviceFormRef.current?.requestSubmit()
+    adviceFormRef.current?.requestSubmit();
   }, []);
 
   return (
