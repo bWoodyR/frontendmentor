@@ -34,7 +34,8 @@ const dessertReducer = (state: State, action: Action): State => {
           return updatedDessert;
         } else return dessert;
       });
-      return { ...state, desserts: updatedListOfDesserts, order: updatedListOfDesserts.filter((dessert) => dessert.isSelected) };
+      const newOrder = updateOrder(updatedDessert, state.order);
+      return { ...state, desserts: updatedListOfDesserts, order: newOrder };
     }
     case DESSERT_ACTION_TYPES.CLEAR_ORDER: {
       const clearedOrders: [] = [];
@@ -65,4 +66,23 @@ const updateDessert = (dessert: Dessert, actionToDo: ActionToDo) => {
       return { ...dessert, isSelected: false, count: 0 };
     }
   }
+};
+
+const updateOrder = (updatedDessertData: Dessert, currentOrder: Dessert[]) => {
+  const isItemInOrder = currentOrder.some((item) => item.name === updatedDessertData.name);
+  console.log(isItemInOrder);
+
+  const newOrder = [...currentOrder];
+  if (isItemInOrder) {
+    const itemIndex = currentOrder.findIndex((item) => item.name === updatedDessertData.name);
+    console.log("INDEX", itemIndex);
+    newOrder.splice(itemIndex, 1, { ...updatedDessertData });
+    console.log("ADD");
+    console.log(newOrder);
+  } else {
+    newOrder.push(updatedDessertData);
+    console.log("PUSH");
+    console.log(newOrder);
+  }
+  return newOrder.filter((dessert) => dessert.isSelected);
 };

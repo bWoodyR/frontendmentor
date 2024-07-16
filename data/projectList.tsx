@@ -27,7 +27,7 @@ export const projects: Project[] = [
     slug: "advice-generator",
     component: <ProductListWithCart />,
     image: "/assets/images/advice-generator/advice-generator-tile.png",
-    dateCreated: new Date("2024-7-15"),
+    dateCreated: new Date("2024-7-16"),
     labels: [],
   },
 ];
