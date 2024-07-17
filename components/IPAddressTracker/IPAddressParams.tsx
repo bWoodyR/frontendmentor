@@ -40,7 +40,7 @@ const IPAddressParams = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center py-4 bg-white text-black rounded-xl w-full sm:w-auto sm:flex-row sm:items-start">
+    <div className="flex flex-col items-center justify-center py-4 bg-white text-black rounded-xl w-full sm:w-auto sm:flex-row sm:items-stretch">
       {data.map((item, index) => {
         return (
           <div key={item.title} className={`px-4 py-2 ${index < data.length - 1 ? "sm:border-r sm:border-r-1" : null}`}>
