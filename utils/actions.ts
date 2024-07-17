@@ -1,6 +1,7 @@
 "use server";
 
 import { TIPDataResponse } from "@/types/IPAddressTracker";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
 export const getIPInformations = async (prevState: TIPDataResponse | null, formData: FormData) => {
@@ -39,6 +40,7 @@ export const findIPData = async (ip: string): Promise<TIPDataResponse> => {
     const regionToArray = ipData.region.split(" ");
     const fixedRegion = regionToArray.slice(0, regionToArray.length - 1).join(" ");
     console.log(ipData);
+   revalidatePath("/projects");
     return {
       ipData: {
         ip: ipData.address,
