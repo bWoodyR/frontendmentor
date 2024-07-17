@@ -28,7 +28,6 @@ export const getInformationAboutIp = async (ipAddress: string) => {
   const data = await response.json();
 
   if (response.status === 200 && data.is_valid) {
-    console.log(data);
     return data;
   } else return null;
 };

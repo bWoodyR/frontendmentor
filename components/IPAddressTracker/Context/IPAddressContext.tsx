@@ -16,10 +16,6 @@ const IPAddressContext = React.createContext<IPAddressContextType>({
 const IPAddressProvider = ({ children }: { children: React.ReactNode }) => {
   const [ipData, setIPData] = useState<TIPAddressData>(null);
 
-  useEffect(() => {
-    console.log(ipData);
-  }, [ipData]);
-
   return <IPAddressContext.Provider value={{ ipData, setIPData }}>{children}</IPAddressContext.Provider>;
 };
 
