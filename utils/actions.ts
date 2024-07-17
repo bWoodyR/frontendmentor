@@ -3,47 +3,15 @@
 import { TIPDataResponse } from "@/types/IPAddressTracker";
 import { headers } from "next/headers";
 
-export const findIP = async (prevState: TIPDataResponse | null, formData: FormData) => {
-  try {
-    const ip = formData.get("ip");
-    const URL = "https://api.api-ninjas.com/v1/iplookup?address=";
-    const API_KEY = process.env.API_NINJAS_KEY;
-
-    const response = await fetch(`${URL}${ip}`, {
-      headers: {
-        "Content-Type": "application/json",
-        "X-Api-Key": `${API_KEY}`,
-      },
-    });
-    const ipData = await response.json();
-    if (response.status === 200) {
-      // coming in format: "name Region" we are removing word Region
-      const regionToArray = ipData.region.split(" ");
-      const fixedRegion = regionToArray.slice(0, regionToArray.length - 1).join(" ");
-
-      console.log(fixedRegion);
-      return {
-        ipData: {
-          ip: ipData.address,
-          region: fixedRegion,
-          country: ipData.country,
-          countryCode: ipData.countryCode,
-          timezone: ipData.timezone,
-          isValid: ipData.isValid,
-        },
-        errorMessage: "",
-      };
-    } else {
-      return {
-        ipData: null,
-        errorMessage: "Something went wrong",
-      };
-    }
-  } catch (error) {
-    console.error(error);
+export const getIPInformations = async (prevState: TIPDataResponse | null, formData: FormData) => {
+  const ip = formData.get("ip") as string;
+  const ipData = await findIPData(ip);
+  if (ipData.ipData) {
+    return ipData;
+  } else {
     return {
       ipData: null,
-      errorMessage: "Internal Server Error",
+      errorMessage: "Something went wrong",
     };
   }
 };
@@ -52,6 +20,46 @@ export const getUserIP = async () => {
   const forwardedFor = headers().get("x-forwarded-for");
   console.log(forwardedFor);
   return forwardedFor;
+};
+
+export const findIPData = async (ip: string): Promise<TIPDataResponse> => {
+  console.log(ip);
+  const URL = "https://api.api-ninjas.com/v1/iplookup?address=";
+  const API_KEY = process.env.API_NINJAS_KEY;
+  return {
+    ipData: null,
+    errorMessage: "Something went wrong",
+  };
+
+  const response = await fetch(`${URL}${ip}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": `${API_KEY}`,
+    },
+  });
+  const ipData = await response.json();
+  if (response.status === 200 && ipData.is_valid) {
+    // coming in format: "name Region" we are removing word Region
+    const regionToArray = ipData.region.split(" ");
+    const fixedRegion = regionToArray.slice(0, regionToArray.length - 1).join(" ");
+    console.log(ipData);
+    return {
+      ipData: {
+        ip: ipData.address,
+        region: fixedRegion,
+        country: ipData.country,
+        countryCode: ipData.countryCode,
+        timezone: ipData.timezone,
+        isValid: ipData.is_valid,
+      },
+      errorMessage: "",
+    };
+  } else {
+    return {
+      ipData: null,
+      errorMessage: "Something went wrong",
+    };
+  }
 };
 
 export const getAdvice = async () => {

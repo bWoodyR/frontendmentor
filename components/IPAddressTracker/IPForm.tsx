@@ -1,44 +1,45 @@
 "use client";
 
-import { findIP } from "@/utils/actions";
+import { getIPInformations } from "@/utils/actions";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import SingleIPParam from "./SingleIPParam";
+import { TIPDataResponse } from "@/types/IPAddressTracker";
 
 type Props = {
-  ip: string | null;
+  userIpData: TIPDataResponse;
 };
 
-const IPForm = ({ ip }: Props) => {
-  const [state, formAction] = useFormState(findIP, null);
+const IPForm = ({ userIpData }: Props) => {
+  const [state, formAction] = useFormState(getIPInformations, null);
   const ipTrackerFormRef = useRef<HTMLFormElement>(null);
 
   const data = [
     {
       title: "IP ADDRESS",
-      value: state?.ipData?.ip,
+      value: state?.ipData?.ip || userIpData?.ipData?.ip || "",
     },
     {
       title: "COUNTRY",
-      value: state?.ipData?.country,
+      value: state?.ipData?.country || userIpData?.ipData?.country || "",
     },
     {
       title: "REGION",
-      value: state?.ipData?.region,
+      value: state?.ipData?.region || userIpData?.ipData?.region || "",
     },
     {
       title: "TIMEZONE",
-      value: state?.ipData?.timezone,
+      value: state?.ipData?.timezone || userIpData?.ipData?.timezone || "",
     },
   ];
 
-  //   useEffect(() => {
-  //     if (ipTrackerFormRef.current) {
-  //       ipTrackerFormRef.current.requestSubmit();
-  //     }
-  //   }, []);
-  // outline outline-2 outline-red-500
+  // useEffect(() => {
+  //   if (ipTrackerFormRef.current) {
+  //     ipTrackerFormRef.current.requestSubmit();
+  //   }
+  // }, []);
+
   return (
     <div className=" flex flex-col gap-6 sm:gap-10 items-center w-full 0">
       <div className="w-full flex flex-col items-center ">
