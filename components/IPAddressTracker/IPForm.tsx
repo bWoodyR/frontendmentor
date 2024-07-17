@@ -38,19 +38,25 @@ const IPForm = ({ ip }: Props) => {
   //       ipTrackerFormRef.current.requestSubmit();
   //     }
   //   }, []);
-
+  // outline outline-2 outline-red-500
   return (
-    <div className=" flex flex-col gap-6 items-center">
-      <h1 className="text-2xl font-medium ">IP Address Tracker</h1>
-      <form action={formAction} className="flex items-center w-full sm:w-1/4 " ref={ipTrackerFormRef}>
-        <input type="text" name="ip" id="ip" className="flex-1 p-4 rounded-l-xl text-black " placeholder="Search for any IP address or domain"></input>
-        <button className="bg-black p-6 rounded-r-xl">
-          <Image src="/assets/images/ip-address-tracker/icon-arrow.svg" alt="" width={10} height={10} />
-        </button>
-      </form>
-      <div className="flex flex-col gap-10 p-6 bg-white text-black rounded-2xl sm:flex-row">
-        {data.map((item) => {
-          return <SingleIPParam key={item.title} {...item} />;
+    <div className=" flex flex-col gap-6 sm:gap-10 items-center w-full 0">
+      <div className="w-full flex flex-col items-center ">
+        <h1 className="text-2xl font-medium ">IP Address Tracker</h1>
+        <form action={formAction} className="w-full flex items-center  justify-center" ref={ipTrackerFormRef}>
+          <input type="text" name="ip" id="ip" className="flex-1 px-4 py-3 rounded-l-xl text-black max-w-[400px]" placeholder="Search for any IP address or domain"></input>
+          <button className="bg-black p-5 rounded-r-xl">
+            <Image src="/assets/images/ip-address-tracker/icon-arrow.svg" alt="" width={10} height={10} />
+          </button>
+        </form>
+      </div>
+      <div className="flex flex-col items-center py-4 bg-white text-black rounded-xl w-full sm:w-auto sm:flex-row sm:items-start">
+        {data.map((item, index) => {
+          return (
+            <div key={item.title} className={`px-4 py-2 ${index < data.length - 1 ? "sm:border-r sm:border-r-1" : null}`}>
+              <SingleIPParam {...item} />
+            </div>
+          );
         })}
       </div>
     </div>
