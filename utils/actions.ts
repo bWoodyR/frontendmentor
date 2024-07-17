@@ -26,7 +26,10 @@ export const findIPData = async (ip: string): Promise<TIPDataResponse> => {
   console.log(ip);
   const URL = "https://api.api-ninjas.com/v1/iplookup?address=";
   const API_KEY = process.env.API_NINJAS_KEY;
-
+  return {
+    ipData: null,
+    errorMessage: "Something went wrong",
+  };
   const response = await fetch(`${URL}${ip}`, {
     headers: {
       "Content-Type": "application/json",
