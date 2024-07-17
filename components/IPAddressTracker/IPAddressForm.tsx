@@ -15,8 +15,8 @@ const IPAddressForm = () => {
   }, [state, setIPData]);
 
   return (
-    <div className="w-full flex flex-col items-center ">
-      <h1 className="text-2xl font-medium ">IP Address Tracker</h1>
+    <div className="w-full flex flex-col gap-4 items-center ">
+      <h1 className="text-3xl font-medium ">IP Address Tracker</h1>
       <form action={formAction} className="w-full flex items-center  justify-center">
         <input type="text" name="ip" id="ip" className="flex-1 px-4 py-3 rounded-l-xl text-black max-w-[400px]" placeholder="Search for any IP address or domain"></input>
         <SubmitButton />

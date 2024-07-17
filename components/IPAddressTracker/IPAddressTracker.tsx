@@ -7,9 +7,7 @@ const IPAddressTracker = async () => {
     <section className="relative flex flex-col  min-h-screen font-rubik">
       <IPAddressProvider>
         <IPAddresssBackground />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 mt-6 p-4 z-10 w-full">
-          <IPForm />
-        </div>
+        <IPForm />
       </IPAddressProvider>
     </section>
   );

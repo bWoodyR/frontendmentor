@@ -13,10 +13,13 @@ const SingleProjectTile = ({ project }: Props) => {
         <span className="sr-only">View Project</span>
       </Link>
       <Image src={project.image} alt={`${project.title}-image`} width={400} height={300} className="object-cover w-full h-60" />
-      <div className="p-4 bg-background">
-        <h3 className="text-lg font-semibold md:text-xl">{project.title}</h3>
-        <p className="text-sm text-muted-foreground">{project.description}</p>
-        <p className="text-gray-500">{project.dateCreated.toLocaleDateString()}</p>
+      <div className="p-4 bg-background flex justify-between">
+        <div>
+          <h3 className="text-lg font-semibold md:text-xl">{project.title}</h3>
+          <p className="text-sm text-muted-foreground">{project.description}</p>
+          <p className="text-gray-500">{project.dateCreated.toLocaleDateString()}</p>
+        </div>
+        <div>{project.difficulty}</div>
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ export const projects: Project[] = [
     slug: "ip-address-tracker",
     component: <IPAddressTracker />,
     image: "/assets/images/ip-address-tracker/ip-address-tracker.png",
-    dateCreated: new Date("2024-7-16"),
+    dateCreated: new Date("2024-7-17"),
     labels: [],
     difficulty: "INTERMEDIATE",
   },
