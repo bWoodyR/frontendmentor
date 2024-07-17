@@ -30,7 +30,7 @@ export default IPAddressForm;
 const SubmitButton = () => {
   const { pending } = useFormStatus();
   return (
-    <button className="bg-black p-5 rounded-r-xl hover:bg-dark-gray transition-colors" disabled={pending}>
+    <button type="submit" className="bg-black p-5 rounded-r-xl hover:bg-dark-gray transition-colors" disabled={pending}>
       <Image src="/assets/images/ip-address-tracker/icon-arrow.svg" alt="" width={10} height={10} />
     </button>
   );

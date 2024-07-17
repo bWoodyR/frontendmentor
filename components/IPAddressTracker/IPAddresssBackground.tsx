@@ -23,7 +23,7 @@ const IPAddresssBackground = () => {
     <>
       <div className={`h-[275px] sm:h-[225px] bg-fixed bg-cover  bg-no-repeat ${bgImg}`}></div>
       {locality ? (
-        <iframe src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}&q=${locality}&zoom=16&maptype=satellite`} className="w-full min-h-max flex-1"></iframe>
+        <iframe src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}&q=${locality}&zoom=16&maptype=satellite`} className="w-full min-h-max flex-1" title="Google Map"></iframe>
       ) : (
         <div className="flex items-center justify-center flex-1">
           <LoadingSpinner color="royale-blue" size={"medium"} />
