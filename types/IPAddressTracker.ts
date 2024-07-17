@@ -1,11 +1,8 @@
-export type TIPDataResponse = {
-  ipData: {
-    ip: string;
-    region: string;
-    country: string;
-    countryCode: string;
-    timezone: string;
-    isValid: boolean;
-  } | null;
-  errorMessage: string;
-};
+export type TIPAddressData = {
+  is_valid: boolean;
+  country: string;
+  country_code: string;
+  region: string;
+  timezone: string;
+  address: string;
+} | null;
