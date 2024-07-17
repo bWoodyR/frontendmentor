@@ -3,7 +3,7 @@ import IPForm from "./IPForm";
 
 const IPAddressTracker = async () => {
   const ip = await getUserIP();
-  const userIPData = await findIPData("84.47.42.7");
+  const userIPData = await findIPData(ip || "0.0.0.0");
 
   return (
     <section className="relative flex flex-col  min-h-screen font-rubik">
