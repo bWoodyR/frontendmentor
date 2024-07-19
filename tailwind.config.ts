@@ -10,7 +10,7 @@ const config: Config = {
         manrope: ["var(--manrope)"],
         outfit: ["var(--outfit)"],
         rubik: ["var(--rubik)"],
-        firacode: ["var(--firacode)"]
+        firacode: ["var(--firacode)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -35,6 +35,12 @@ const config: Config = {
         "qr-dark-blue": "hsl(218, 44%, 22%)",
         "very-dark-gray": "hsl(0, 0%, 17%)",
         "dark-gray": "hsl(0, 0%, 59%)",
+        "scissors-gradient-from": "hsl(39, 89%, 49%)",
+        "scissors-gradient-to": "hsl(40, 84%, 53%)",
+        "rock-gradient-from": "hsl(349, 71%, 52%)",
+        "rock-gradient-to": "hsl(349, 70%, 56%)",
+        "paper-gradient-from": "hsl(230, 89%, 62%)",
+        "paper-gradient-to": "hsl(230, 89%, 65%)",
       },
       boxShadow: {
         "neon-spread": `0 0 0.75rem 1rem rgba(82, 255, 168, 0.25)`,

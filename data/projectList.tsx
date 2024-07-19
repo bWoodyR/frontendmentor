@@ -3,6 +3,7 @@ import IPAddressTracker from "@/components/IPAddressTracker/IPAddressTracker";
 import ProductListWithCart from "@/components/ProductListWithCart/ProductListWithCart";
 import QRCodeComponent from "@/components/QRCodeComponent/QRCodeComponent";
 import ResultSummaryComopnents from "@/components/ResultsSummaryComponent/ResultSummaryComopnents";
+import RockPaperScissors from "@/components/RockPaperScissors/RockPaperScissors";
 import { Project } from "@/types/ProjectType";
 
 export const projects: Project[] = [
@@ -55,5 +56,15 @@ export const projects: Project[] = [
     dateCreated: new Date("2024-7-17"),
     labels: [],
     difficulty: "INTERMEDIATE",
+  },
+  {
+    title: "Rock Paper Scissors Game",
+    description: "",
+    slug: "rock-paper-scissors",
+    component: <RockPaperScissors />,
+    image: "/assets/images/rock-paper-scissors/rock-paper-scissors.png",
+    dateCreated: new Date("2024-7-20"),
+    labels: [],
+    difficulty: "ADVANCED",
   },
 ];

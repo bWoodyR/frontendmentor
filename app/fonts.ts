@@ -1,4 +1,4 @@
-import { Fira_Code, Hanken_Grotesk, Inter, Manrope, Outfit, Red_Hat_Text, Rubik } from "next/font/google";
+import { Barlow_Semi_Condensed, Fira_Code, Hanken_Grotesk, Inter, Manrope, Outfit, Red_Hat_Text, Rubik } from "next/font/google";
 
 export const inter = Inter({ subsets: ["latin"] });
 
@@ -36,4 +36,11 @@ export const firecoda = Fira_Code({
   subsets: ["latin"],
   display: "swap",
   variable: "--firacode",
+});
+
+export const barlowSemiCondensed = Barlow_Semi_Condensed({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--barlow-semi-condensed",
+  weight: ["600", "700"],
 });

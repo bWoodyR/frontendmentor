@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { firecoda, hank, inter, manrope, outfit, redHatText, rubik } from "./fonts";
+import {firecoda, hank, inter, manrope, outfit, redHatText, rubik } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
