@@ -19,8 +19,8 @@ type RockPaperScissorsType = {
 };
 
 const RPSContext = React.createContext<RockPaperScissorsType>({
-  playerPick: null,
-  computerPick: null,
+  playerPick: "none",
+  computerPick: "none",
   showResultScreen: false,
   result: null,
   handlePlayerPick: () => {},
@@ -29,28 +29,28 @@ const RPSContext = React.createContext<RockPaperScissorsType>({
 });
 
 const RPSProvider = ({ children }: { children: React.ReactNode }) => {
-  const [playerPick, setPlayerPick] = useState<TRockPaperScissorsPick>(null);
+  const [playerPick, setPlayerPick] = useState<TRockPaperScissorsPick>("none");
   const [computerPick, setComputerPick] =
-    useState<TRockPaperScissorsPick>(null);
+    useState<TRockPaperScissorsPick>("none");
   const [result, setResult] = useState<TRockPaperScissorsResult>(null);
   const [showResultScreen, setShowResultScreen] = useState(false);
   const [score, setScore] = useState<number>(0);
 
   const handlePlayerPick = (pick: TRockPaperScissorsPick) => {
     setPlayerPick(pick);
-    getResult(pick);
     setShowResultScreen(true);
+    setTimeout(() => {
+      const computerPick = handleComputerPick();
+      setTimeout(() => {
+        getResult(pick, computerPick);
+      }, 1000);
+    }, 1000);
   };
 
-  const getResult = (playerPick: TRockPaperScissorsPick) => {
-    const availableOptions: TRockPaperScissorsOptions = [
-      "rock",
-      "paper",
-      "scissors",
-    ];
-    const computerPick =
-      availableOptions[Math.floor(Math.random() * availableOptions.length)];
-    setComputerPick(computerPick);
+  const getResult = (
+    playerPick: TRockPaperScissorsPick,
+    computerPick: TRockPaperScissorsPick,
+  ) => {
     const winningConditions = {
       rock: "scissors",
       paper: "rock",
@@ -60,22 +60,35 @@ const RPSProvider = ({ children }: { children: React.ReactNode }) => {
     if (playerPick === computerPick) {
       setResult("draw");
     } else if (
-      playerPick !== null &&
+      playerPick !== "none" &&
       winningConditions[playerPick] === computerPick
     ) {
       setResult("won");
       setScore((score) => score + 1);
     } else {
       setResult("lost");
-      setScore((score) => score - 1);
+      setScore((score) => (score > 0 ? score - 1 : 0));
     }
+  };
+
+  const handleComputerPick = () => {
+    const availableOptions: TRockPaperScissorsOptions = [
+      "rock",
+      "paper",
+      "scissors",
+    ];
+    const computerPick =
+      availableOptions[Math.floor(Math.random() * availableOptions.length)];
+    setComputerPick(computerPick);
+    return computerPick;
   };
 
   const playAgain = () => {
     setResult(null);
     setShowResultScreen(false);
-    setPlayerPick(null), setComputerPick(null);
+    setPlayerPick("none"), setComputerPick("none");
   };
+
   return (
     <RPSContext.Provider
       value={{

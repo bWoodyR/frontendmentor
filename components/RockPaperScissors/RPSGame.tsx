@@ -8,7 +8,7 @@ import ResultScreen from "./ResultScreen";
 const RPSGame = () => {
   const { showResultScreen } = useContext(RPSContext);
 
-  return <>{showResultScreen ? <ResultScreen /> : <GameButtons />}</>;
+  return <div>{showResultScreen ? <ResultScreen /> : <GameButtons />}</div>;
 };
 
 export default RPSGame;
