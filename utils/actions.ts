@@ -37,13 +37,11 @@ export const getInformationAboutIp = async (ipAddress: string) => {
 
 export const getUserIp = async () => {
   const FALLBACK_IP_ADDRESS = "0.0.0.0";
-  const ip =
-    headers().get("x-forwarded-for") ??
-    headers().get("x-real-ip") ??
-    FALLBACK_IP_ADDRESS;
+  const xForwardedFor = headers().get("x-forwarded-for") ?? FALLBACK_IP_ADDRESS;
+  const realIp = headers().get("x-real-ip") ?? FALLBACK_IP_ADDRESS;
 
-  const isIPValid = validateIP(ip);
-  if (isIPValid) return ip;
+  const isIPValid = validateIP(xForwardedFor[0] || realIp);
+  if (isIPValid) return xForwardedFor || realIp;
   return null;
 };
 
