@@ -2,7 +2,12 @@ import IPForm from "./IPForm";
 import { IPAddressProvider } from "./Context/IPAddressContext";
 import dynamic from "next/dynamic";
 
-const IPAddresssBackgroundDynamic = dynamic(() => import("@/components/IPAddressTracker/IPAddresssBackground"));
+const IPAddresssBackgroundDynamic = dynamic(
+  () => import("@/components/IPAddressTracker/IPAddresssBackground"),
+  {
+    ssr: false,
+  },
+);
 
 const IPAddressTracker = async () => {
   return (
