@@ -4,15 +4,12 @@ import React, { useCallback, useContext, useEffect } from "react";
 import SingleIPParam from "./SingleIPParam";
 import { IPAddressContext } from "./Context/IPAddressContext";
 import { getInformationAboutIp, getUserIp } from "@/utils/actions";
-import { headers } from "next/headers";
 
 const IPAddressParams = () => {
   const { ipData, setIPData } = useContext(IPAddressContext);
 
   const getUserIpData = useCallback(async () => {
     const userIP = await getUserIp();
-    console.log(headers());
-    console.log(headers().get("x-forwarded-for"));
     if (userIP) {
       const userIpData = await getInformationAboutIp(userIP);
       setIPData(userIpData);

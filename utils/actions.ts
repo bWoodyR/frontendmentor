@@ -4,7 +4,10 @@ import { headers } from "next/headers";
 import { validateIP } from "./helpers/validations";
 import { TIPAddressData } from "@/types/IPAddressTracker";
 
-export const handleIPAddressForm = async (prevState: TIPAddressData | null, formData: FormData) => {
+export const handleIPAddressForm = async (
+  prevState: TIPAddressData | null,
+  formData: FormData,
+) => {
   const ip = formData.get("ip") as string;
   const data = await getInformationAboutIp(ip.trim());
   if (!data) return null;
@@ -33,8 +36,12 @@ export const getInformationAboutIp = async (ipAddress: string) => {
 };
 
 export const getUserIp = async () => {
-  const ip = headers().get("x-forwarded-for") as string;
-  console.log(ip);
+  const FALLBACK_IP_ADDRESS = "0.0.0.0";
+  const ip =
+    headers().get("x-forwarded-for") ??
+    headers().get("x-real-ip") ??
+    FALLBACK_IP_ADDRESS;
+
   const isIPValid = validateIP(ip);
   if (isIPValid) return ip;
   return null;
@@ -65,4 +72,3 @@ export const getAdvice = async () => {
     };
   }
 };
-
