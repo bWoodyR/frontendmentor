@@ -10,6 +10,7 @@ const IPAddressParams = () => {
 
   const getUserIpData = useCallback(async () => {
     const userIP = await getUserIp();
+    console.log(userIP)
     if (userIP) {
       const userIpData = await getInformationAboutIp(userIP);
       setIPData(userIpData);
