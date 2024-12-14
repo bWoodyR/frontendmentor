@@ -41,7 +41,7 @@ export const getUserIp = async () => {
   // const realIp = headers().get("x-real-ip") ?? FALLBACK_IP_ADDRESS;
 
   const isIPValid = validateIP(xForwardedFor.split(",")[0]);
-  if (isIPValid) return xForwardedFor;
+  if (isIPValid) return xForwardedFor.split(",")[0];
   return null;
 };
 
