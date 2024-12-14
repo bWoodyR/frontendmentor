@@ -4,13 +4,15 @@ import React, { useCallback, useContext, useEffect } from "react";
 import SingleIPParam from "./SingleIPParam";
 import { IPAddressContext } from "./Context/IPAddressContext";
 import { getInformationAboutIp, getUserIp } from "@/utils/actions";
+import { headers } from "next/headers";
 
 const IPAddressParams = () => {
   const { ipData, setIPData } = useContext(IPAddressContext);
 
   const getUserIpData = useCallback(async () => {
     const userIP = await getUserIp();
-    console.log(userIP)
+    console.log(headers());
+    console.log(headers().get("x-forwarded-for"));
     if (userIP) {
       const userIpData = await getInformationAboutIp(userIP);
       setIPData(userIpData);
@@ -41,10 +43,13 @@ const IPAddressParams = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center py-4 bg-white text-black rounded-xl w-full sm:w-auto sm:flex-row sm:items-stretch">
+    <div className="flex w-full flex-col items-center justify-center rounded-xl bg-white py-4 text-black sm:w-auto sm:flex-row sm:items-stretch">
       {data.map((item, index) => {
         return (
-          <div key={item.title} className={`px-4 py-2 ${index < data.length - 1 ? "sm:border-r sm:border-r-1" : null}`}>
+          <div
+            key={item.title}
+            className={`px-4 py-2 ${index < data.length - 1 ? "sm:border-r-1 sm:border-r" : null}`}
+          >
             <SingleIPParam {...item} />
           </div>
         );
